@@ -6,26 +6,30 @@ var questionList = [{
     correctAnswer: "Astros",
 },
 {
-    question: "Tee, Par, and Flagstick are associate with what game?",
+    question: "Tee, Par, and Flagstick are associated with what game?",
     answers: ["Golf, Football, Tennis"],
     correctAnswer: "Golf",
+},
+{
+    question:  "Who has won the most Gold medals at a single Olympic Games in the history of the Olympics?",
+    answers: ["James Connelly, Mark Spitz", "Michael Phelps"],
+    correctAnswer: "Michael Phelps",
+},
+{
+    question: " Name the Basketball player who Became Youngest Player in the History of NBA to Reach 30000 Career Points",
+    answers: ["Lebron James, Kobe Bryant, Michael Jordan"],
+    correctAnswer: "Kobe Bryant",
 }
-    "Who has won the maximum number of Gold medals at a single Olympic Games in the history of the Olympics?",
-" Name the Basketball player who Became Youngest Player in the History of NBA to Reach 30000 Career Points"
+];
+
+var x ="";
+x = Math.floor(Math.random() * this.questionList.length);
+$("#question").text(this.questionList[x].question);
 
 
-{
-    wronganswersone: ["Arsenal, Chelsea"],
-    wronganswertwo: ["Football, Tennis"],
-    wronganswerthree: ["James Connelly, Mark Spitz"],
-    wronganswerfour: ["Lebron James, Michael Jordan"],
-}
-{
-    questionone: "Houston Astros",
-    questiontwo = "Golf",
-    questionthree = "Michael Phelps",
-    questionfour = "Kobe Bryant", 
-}
+
+
+
 
 var number = 20;
 var intervalId;
@@ -48,30 +52,6 @@ function stop() {
 }
 
 run();
-
-
-var RandomquestionOne = questionList[Math.floor(Math.random()*questionList.length)];
-console.log(RandomquestionOne)
-RandomquestionOne = $("#questionValue").html(" " + RandomquestionOne);
-questionList.splice(RandomquestionOne, 1);
-console.log(questionList)
-
-var RandomquestionTwo = questionList[Math.floor(Math.random()*questionList.length)];
-RandomquestionTwo = $("#questionValue2").html(" " + RandomquestionTwo);
-questionList.splice(RandomquestionTwo, 1);
-console.log(questionList)
-
-var RandomquestionThree = questionList[Math.floor(Math.random()*questionList.length)];
-RandomquestionThree = $("#questionValue3").html(" " + RandomquestionThree);
-questionList.splice(RandomquestionThree, 1);
-console.log(questionList)
-
-var RandomquestionFour = questionList[Math.floor(Math.random()*questionList.length)];
-RandomquestionFour = $("#questionValue4").html(" " + RandomquestionFour);
-
-
-var wronganswer1 = wronganswers.wronganswersone[Math.floor(Math.random()*wronganswers.wronganswersone.length)]
-wronganswer1 = $("")
 
 
 
