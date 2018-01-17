@@ -2,22 +2,22 @@
 
 var questionList = [{
     question: "Among the following which is not a football club?",
-    answers: ["Arsenal, Chelsea, Astros"],
+    answers: ["Arsenal", "Chelsea", "Astros"],
     correctAnswer: "Astros",
 },
 {
     question: "Tee, Par, and Flagstick are associated with what game?",
-    answers: ["Golf, Football, Tennis"],
+    answers: ["Golf", "Football", "Tennis"],
     correctAnswer: "Golf",
 },
 {
     question:  "Who has won the most Gold medals at a single Olympic Games in the history of the Olympics?",
-    answers: ["James Connelly, Mark Spitz", "Michael Phelps"],
+    answers: ["James Connelly", "Mark Spitz", "Michael Phelps"],
     correctAnswer: "Michael Phelps",
 },
 {
     question: " Name the Basketball player who Became Youngest Player in the History of NBA to Reach 30000 Career Points",
-    answers: ["Lebron James, Kobe Bryant, Michael Jordan"],
+    answers: ["Lebron James", "Kobe Bryant", "Michael Jordan"],
     correctAnswer: "Kobe Bryant",
 }
 ];
@@ -25,7 +25,23 @@ var questionList = [{
 var x ="";
 x = Math.floor(Math.random() * this.questionList.length);
 $("#question").text(this.questionList[x].question);
+var idNumber = 1;
+		for(i = 0; i < 3; i++){
+			selectionNumber = Math.floor(Math.random() * this.questionList[x].answers.length);
+            var answerId = "#answer" + idNumber;
+            console.log(answerId);
+			idNumber = idNumber + 1;
+			$(answerId).text(this.questionList[x].answers[selectionNumber]);
+			$(answerId).val(this.questionList[x].answers[selectionNumber]);
+            this.questionList[x].answers.splice([selectionNumber],1);}
+            
+var game = {
+win:  0,
+loss: 0,
+state : ""
+}
 
+            
 
 
 
@@ -49,8 +65,11 @@ function decrement() {
 
 function stop() {
     clearInterval(intervalId);
+    loss ++;
+    $("#wrong").append(loss);
+    console.log(loss);
+    
 }
-
 run();
 
 
