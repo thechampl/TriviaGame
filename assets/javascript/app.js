@@ -1,4 +1,4 @@
-
+var correctAnswer = "";
 
 var questionList = [{
     question: "Among the following which is not a football club?",
@@ -24,6 +24,8 @@ var questionList = [{
 
 var x ="";
 x = Math.floor(Math.random() * this.questionList.length);
+
+function displayQuestion(){
 $("#question").text(this.questionList[x].question);
 var idNumber = 1;
 		for(i = 0; i < 3; i++){
@@ -34,6 +36,10 @@ var idNumber = 1;
 			$(answerId).text(this.questionList[x].answers[selectionNumber]);
 			$(answerId).val(this.questionList[x].answers[selectionNumber]);
             this.questionList[x].answers.splice([selectionNumber],1);}
+            correctAnswer = this.questionList[x].correctAnswer;
+            console.log(correctAnswer);
+        }
+            
             
 var game = {
 win:  0,
@@ -61,16 +67,38 @@ function decrement() {
     if (number === 0) {
         stop();        
     }
-}
-
-function stop() {
-    clearInterval(intervalId);
-    loss ++;
-    $("#wrong").append(loss);
-    console.log(loss);
     
 }
+
+
+    
+function stop() {
+    clearInterval(intervalId);
+    game.loss ++;
+    $("#wrong").html("WRONG " + game.loss);
+    // $("#remaining").clear();
+    number = 20;
+    $("#remaining").html("" + number);
+    x++;
+    displayQuestion();
+    run();
+}
+
+displayQuestion();
+
 run();
 
+$(".btn-default").click(function() {
+    alert("test");
+    console.log(this);
+    console.log(this.value);
 
+//  if(this. = correctAnswer)
+
+});  
+
+
+
+
+    
 
