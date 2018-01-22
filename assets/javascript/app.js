@@ -1,42 +1,43 @@
-var correctAnswer = "";
+var correctAnswer;
 
 var questionList = [{
     question: "Among the following which is not a football club?",
     answers: ["Arsenal", "Chelsea", "Astros"],
-    correctAnswer: "Astros",
+    correctAnswer: "Astros"
 },
 {
     question: "Tee, Par, and Flagstick are associated with what game?",
     answers: ["Golf", "Football", "Tennis"],
-    correctAnswer: "Golf",
+    correctAnswer: "Golf"
 },
 {
     question: "Who has won the most Gold medals at a single Olympic Games in the history of the Olympics?",
     answers: ["James Connelly", "Mark Spitz", "Michael Phelps"],
-    correctAnswer: "Michael Phelps",
+    correctAnswer: "Michael Phelps"
 },
 {
     question: " Name the Basketball player who Became Youngest Player in the History of NBA to Reach 30000 Career Points",
     answers: ["Lebron James", "Kobe Bryant", "Michael Jordan"],
-    correctAnswer: "Kobe Bryant",
+    correctAnswer: "Kobe Bryant"
 }
 ];
 
-var x = "";
-x = Math.floor(Math.random() * this.questionList.length);
+
 
 function displayQuestion() {
+   console.log(this.questionList);
+    var x;
+x = Math.floor(Math.random() * this.questionList.length);
     $("#question").empty();
     $("#question").text(this.questionList[x].question);
-    var idNumber = 1;
+    var idNumber = 2;
     for (i = 0; i < 3; i++) {
         selectionNumber = Math.floor(Math.random() * this.questionList[x].answers.length);
         var answerId = "#answer" + idNumber;
         console.log(answerId);
-        idNumber = idNumber + 1;
         $(answerId).text(this.questionList[x].answers[selectionNumber]);
         $(answerId).val(this.questionList[x].answers[selectionNumber]);
-        this.questionList[x].answers.splice([selectionNumber], 1);
+        this.questionList[x].questionList.splice([selectionNumber], 1);
     }
     correctAnswer = this.questionList[x].correctAnswer;
     console.log(correctAnswer);
@@ -84,7 +85,7 @@ function stop() {
 
     number = 20;
     $("#remaining").html("" + number);
-    x--;
+    // x--;
     displayQuestion();
 
 }
@@ -111,7 +112,7 @@ $(".btn-default").click(function () {
     clearInterval(intervalId);
     number = 20;
     $("#remaining").html("" + number);
-    x--;
+    // x--;
 
     displayQuestion()
 
