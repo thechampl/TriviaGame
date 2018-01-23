@@ -30,19 +30,19 @@ function displayQuestion() {
 x = Math.floor(Math.random() * this.questionList.length);
     $("#question").empty();
     $("#question").text(this.questionList[x].question);
-    var idNumber = 2;
+  
     for (i = 0; i < 3; i++) {
         selectionNumber = Math.floor(Math.random() * this.questionList[x].answers.length);
-        var answerId = "#answer" + idNumber;
-        console.log(answerId);
+        var answerId = "#answer" + (i+1);
         $(answerId).text(this.questionList[x].answers[selectionNumber]);
         $(answerId).val(this.questionList[x].answers[selectionNumber]);
-        this.questionList[x].questionList.splice([selectionNumber], 1);
+        this.questionList[x].answers.splice([selectionNumber], 1);
     }
     correctAnswer = this.questionList[x].correctAnswer;
     console.log(correctAnswer);
     number = 20;
     run();
+    this.questionList.splice(x, 1);
 
 }
 
@@ -114,8 +114,9 @@ $(".btn-default").click(function () {
     $("#remaining").html("" + number);
     // x--;
 
-    displayQuestion()
-
+    if (questionList.length>0) {
+        displayQuestion()
+    }
     console.log(number);
     console.log(question);
     console.log(questionList);
